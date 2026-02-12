@@ -79,7 +79,7 @@ echo "=== Step 5a: Building Lydux human68k-gcc 4.6.2 (this takes a while) ==="
 if [ ! -x /opt/toolchains/x68k/bin/human68k-gcc ]; then
     su - "$CEX_USER" -c "cd /tmp && \
         ([ -d human68k-gcc-lydux ] || git clone -b gcc-4.6.2 https://github.com/erique/human68k-gcc.git human68k-gcc-lydux) && \
-        cd human68k-gcc-lydux && sh build_x68_gcc.sh"
+        cd human68k-gcc-lydux && bash build_x68_gcc.sh"
 fi
 /opt/toolchains/x68k/bin/human68k-gcc --version | head -1
 
