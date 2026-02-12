@@ -3,7 +3,7 @@ FROM debian:12 AS build-base
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     build-essential git wget curl lhasa libgmp-dev libmpfr-dev libmpc-dev \
-    flex bison gettext texinfo libncurses-dev autoconf rsync libreadline-dev \
+    flex bison gettext texinfo libncurses-dev autoconf rsync libreadline-dev expect \
     && rm -rf /var/lib/apt/lists/*
 
 # Stage 2: Build bebbo's amiga-gcc
@@ -19,7 +19,7 @@ FROM build-base AS human68k-lydux
 RUN cd /tmp \
     && git clone -b gcc-4.6.2 https://github.com/erique/human68k-gcc.git \
     && cd human68k-gcc \
-    && make min -j"$(nproc)" PREFIX=/opt/toolchains/x68k
+    && sh build_x68_gcc.sh
 
 # Stage 4: Build human68k-gcc (6.5.0b)
 FROM build-base AS human68k-650b
