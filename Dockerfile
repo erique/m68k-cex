@@ -44,7 +44,7 @@ FROM debian:12
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    git make gcc g++ wget xz-utils \
+    git make gcc g++ wget xz-utils rsync \
     gcc-m68k-linux-gnu g++-m68k-linux-gnu \
     && rm -rf /var/lib/apt/lists/*
 
