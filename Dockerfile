@@ -60,7 +60,7 @@ ENV PATH="/opt/node/bin:$PATH"
 COPY --from=amiga-gcc /opt/amiga /opt/amiga
 COPY --from=human68k-lydux /opt/toolchains/x68k /opt/toolchains/x68k
 COPY --from=human68k-650b /opt/toolchains/human68k /opt/toolchains/human68k
-COPY --from=elf2x68k /opt/elf2x68k /opt/elf2x68k
+COPY --from=elf2x68k --chmod=755 /opt/elf2x68k /opt/elf2x68k
 
 # Create user and copy repo
 RUN useradd -m -s /bin/bash cex
