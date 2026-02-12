@@ -23,6 +23,7 @@ RUN cd /tmp \
 
 # Stage 4: Build human68k-gcc (6.5.0b)
 FROM build-base AS human68k-650b
+RUN mkdir -p /opt/toolchains/human68k/bin
 RUN cd /tmp \
     && git clone -b gcc-6.5.0 https://github.com/erique/human68k-gcc.git \
     && cd human68k-gcc \

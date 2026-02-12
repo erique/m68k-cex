@@ -46,8 +46,8 @@ if ! id "$CEX_USER" >/dev/null 2>&1; then
     useradd -m -s /bin/bash "$CEX_USER"
 fi
 
-mkdir -p /opt/node /opt/amiga /opt/toolchains/x68k /opt/toolchains/human68k /opt/elf2x68k
-chown "$CEX_USER:$CEX_USER" /opt/amiga /opt/toolchains /opt/toolchains/x68k /opt/toolchains/human68k /opt/elf2x68k
+mkdir -p /opt/node /opt/amiga /opt/toolchains/x68k/bin /opt/toolchains/human68k/bin /opt/elf2x68k
+chown -R "$CEX_USER:$CEX_USER" /opt/amiga /opt/toolchains /opt/elf2x68k
 
 # ---------------------------------------------------------------------------
 # Step 3: Node.js 22
