@@ -66,18 +66,32 @@ fi
 /opt/amiga/bin/m68k-amigaos-gcc --version | head -1
 
 # ---------------------------------------------------------------------------
-# Step 4: Build human68k-gcc
+# Step 4a: Build Lydux human68k-gcc (4.6.2)
 # ---------------------------------------------------------------------------
-echo "=== Step 4: Building human68k-gcc (this takes a while) ==="
-if [ ! -x /opt/human68k/bin/human68k-gcc ]; then
+echo "=== Step 4a: Building Lydux human68k-gcc 4.6.2 (this takes a while) ==="
+if [ ! -x /opt/toolchains/x68k/bin/human68k-gcc ]; then
     cd /tmp
-    if [ ! -d human68k-gcc ]; then
-        git clone -b gcc-6.5.0 https://github.com/erique/human68k-gcc.git
+    if [ ! -d human68k-gcc-lydux ]; then
+        git clone -b gcc-4.6.2 https://github.com/erique/human68k-gcc.git human68k-gcc-lydux
     fi
-    cd human68k-gcc
-    make min -j"$(nproc)" PREFIX=/opt/human68k
+    cd human68k-gcc-lydux
+    make min -j"$(nproc)" PREFIX=/opt/toolchains/x68k
 fi
-/opt/human68k/bin/human68k-gcc --version | head -1
+/opt/toolchains/x68k/bin/human68k-gcc --version | head -1
+
+# ---------------------------------------------------------------------------
+# Step 4b: Build human68k-gcc (6.5.0b)
+# ---------------------------------------------------------------------------
+echo "=== Step 4b: Building human68k-gcc 6.5.0b (this takes a while) ==="
+if [ ! -x /opt/toolchains/human68k/bin/m68k-human68k-gcc-6.5.0b ]; then
+    cd /tmp
+    if [ ! -d human68k-gcc-650b ]; then
+        git clone -b gcc-6.5.0 https://github.com/erique/human68k-gcc.git human68k-gcc-650b
+    fi
+    cd human68k-gcc-650b
+    make min -j"$(nproc)" PREFIX=/opt/toolchains/human68k
+fi
+/opt/toolchains/human68k/bin/m68k-human68k-gcc-6.5.0b --version | head -1
 
 # ---------------------------------------------------------------------------
 # Step 5: Download elf2x68k
