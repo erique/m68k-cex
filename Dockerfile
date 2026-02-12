@@ -3,7 +3,7 @@ FROM debian:12 AS build-base
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     build-essential git wget curl lhasa libgmp-dev libmpfr-dev libmpc-dev \
-    flex bison gettext texinfo libncurses-dev autoconf rsync libreadline-dev expect \
+    flex bison gettext texinfo libncurses-dev autoconf rsync libreadline-dev expect cmake \
     && rm -rf /var/lib/apt/lists/*
 
 # Stage 2: Build bebbo's amiga-gcc

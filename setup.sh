@@ -34,7 +34,7 @@ echo "=== Step 1: Installing apt dependencies ==="
 apt-get update
 apt-get install -y \
     build-essential git wget curl lhasa libgmp-dev libmpfr-dev libmpc-dev \
-    flex bison gettext texinfo libncurses-dev autoconf rsync libreadline-dev expect \
+    flex bison gettext texinfo libncurses-dev autoconf rsync libreadline-dev expect cmake \
     gcc-m68k-linux-gnu g++-m68k-linux-gnu \
     iptables netfilter-persistent iptables-persistent
 
