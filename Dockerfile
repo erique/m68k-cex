@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 # Stage 2: Build bebbo's amiga-gcc
 FROM build-base AS amiga-gcc
 RUN cd /tmp \
-    && git clone https://github.com/bebbo/amiga-gcc.git \
+    && git clone https://github.com/erique/amiga-gcc.git \
     && cd amiga-gcc \
     && make update \
     && make all -j"$(nproc)" PREFIX=/opt/amiga

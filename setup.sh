@@ -67,7 +67,7 @@ fi
 echo "=== Step 4: Building amiga-gcc (this takes a while) ==="
 if [ ! -x /opt/amiga/bin/m68k-amigaos-gcc ]; then
     su - "$CEX_USER" -c "cd /tmp && \
-        ([ -d amiga-gcc ] || git clone https://github.com/bebbo/amiga-gcc.git) && \
+        ([ -d amiga-gcc ] || git clone https://github.com/erique/amiga-gcc.git) && \
         cd amiga-gcc && make update && make all -j$(nproc) PREFIX=/opt/amiga"
 fi
 /opt/amiga/bin/m68k-amigaos-gcc --version | head -1
