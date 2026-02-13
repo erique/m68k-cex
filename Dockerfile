@@ -57,9 +57,9 @@ RUN wget -q "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linu
 ENV PATH="/opt/node/bin:$PATH"
 
 # Copy toolchains from build stages
-COPY --from=amiga-gcc /opt/amiga /opt/amiga
-COPY --from=human68k-lydux /opt/toolchains/x68k /opt/toolchains/x68k
-COPY --from=human68k-650b /opt/toolchains/human68k /opt/toolchains/human68k
+COPY --from=amiga-gcc --chmod=755 /opt/amiga /opt/amiga
+COPY --from=human68k-lydux --chmod=755 /opt/toolchains/x68k /opt/toolchains/x68k
+COPY --from=human68k-650b --chmod=755 /opt/toolchains/human68k /opt/toolchains/human68k
 COPY --from=elf2x68k --chmod=755 /opt/elf2x68k /opt/elf2x68k
 
 # Create user and copy repo
